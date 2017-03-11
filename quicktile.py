@@ -164,7 +164,7 @@ class GravityLayout(object):  # pylint: disable=too-few-public-methods
 
 #: Number of columns to base generated L{POSITIONS} presets on
 #: @todo: Store COLUMN_COUNT in quicktile.cfg for easy editing
-COLUMN_COUNT = 3
+COLUMN_COUNT = 4
 
 def _make_positions():
     """Generate the classic WinSplit Revolution tiling presets
@@ -178,7 +178,7 @@ def _make_positions():
     cycle_steps = tuple(col_width * x for x in range(1, COLUMN_COUNT))
 
     edge_steps = (1.0,) + cycle_steps
-    corner_steps = (0.5,) + cycle_steps
+    corner_steps = (0.5, 0.25, 0.75)
 
     positions = {
         'middle': [gvlay(width, 1, 'middle') for width in edge_steps],
